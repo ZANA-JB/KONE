@@ -1,11 +1,17 @@
 'use client'
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation'; // Import ajouté
-import axios from 'axios'; // Import ajouté
+import { useRouter } from 'next/navigation';
+import axios from 'axios';
 import { Mail, Lock, Eye, EyeOff, BookOpen, CheckCircle, AlertCircle, Loader2, Home } from 'lucide-react';
 
+// Interface pour les types d'erreurs
+interface FormErrors {
+  email?: string;
+  password?: string;
+}
+
 const LoginPage = () => {
-  const router = useRouter(); // Hook ajouté
+  const router = useRouter();
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -14,12 +20,12 @@ const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState({ type: '', text: '' });
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<FormErrors>({});
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   // Validation des champs
   const validateForm = () => {
-    const newErrors = {};
+    const newErrors: FormErrors = {};
     
     if (!formData.email.trim()) {
       newErrors.email = 'L\'email est requis';
@@ -38,7 +44,7 @@ const LoginPage = () => {
   };
 
   // Gestion des changements dans les inputs
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -46,7 +52,7 @@ const LoginPage = () => {
     }));
     
     // Effacer les erreurs lors de la saisie
-    if (errors[name]) {
+    if (errors[name as keyof FormErrors]) {
       setErrors(prev => ({
         ...prev,
         [name]: ''
@@ -70,9 +76,7 @@ const LoginPage = () => {
         password: formData.password
       });
       
-      console.log("Utilisateur connecté :", response.data.user); ///
-
-
+      console.log("Utilisateur connecté :", response.data.user);
 
       // Vérification de la réponse
       if (response.data.success) {
@@ -101,45 +105,23 @@ const LoginPage = () => {
         });
       }
       
-      /* Code de simulation commenté - décommentez si vous voulez tester sans serveur
-      // Simulation d'une vérification en base de données
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Simulation - remplacez par la vraie logique de vérification
-      const mockUsers = [
-        { email: 'admin@bibliotheque.com', password: 'admin123', prenom: 'Admin' }
-      ];
-      
-      const user = mockUsers.find(u => 
-        u.email === formData.email && u.password === formData.password
-      );
-      
-      if (user) {
-        // Utilisateur trouvé - connexion réussie
-        setIsAuthenticated(true);
-        setMessage({
-          type: 'success',
-          text: `Connexion réussie ! Bienvenue ${user.prenom}`
-        });
-      } else {
-        // Utilisateur non trouvé ou mot de passe incorrect
-        setMessage({
-          type: 'error',
-          text: 'Email ou mot de passe incorrect. Veuillez vérifier vos informations.'
-        });
-      }
-      */
-      
     } catch (error) {
       console.error('Erreur lors de la connexion:', error);
       
       // Gestion spécifique des erreurs réseau
-      if (error.code === 'ECONNREFUSED' || error.message.includes('Network Error')) {
-        setMessage({
-          type: 'error',
-          text: 'Impossible de se connecter au serveur. Vérifiez que le serveur fonctionne sur le port 4100.'
-        });
-      } else if (error.response) {
+      if (error instanceof Error) {
+        if (error.message.includes('Network Error')) {
+          setMessage({
+            type: 'error',
+            text: 'Impossible de se connecter au serveur. Vérifiez que le serveur fonctionne sur le port 4100.'
+          });
+        } else {
+          setMessage({
+            type: 'error',
+            text: 'Erreur de connexion. Veuillez réessayer plus tard.'
+          });
+        }
+      } else if (axios.isAxiosError(error) && error.response) {
         // Le serveur a répondu avec un code d'erreur
         setMessage({
           type: 'error',
@@ -158,7 +140,7 @@ const LoginPage = () => {
 
   // Fonction pour rediriger vers l'accueil
   const handleGoToHome = () => {
-    router.push('/accueil'); // Corrigé: accueil au lieu d'acceuil
+    router.push('/accueil');
   };
 
   // Fonction pour rediriger vers l'inscription
