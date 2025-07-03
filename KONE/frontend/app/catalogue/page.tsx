@@ -21,14 +21,6 @@ import {
   Bookmark
 } from 'lucide-react';
 
-
-interface Book {
-  id: number;
-  titre: string;
-  auteur: string;
-  genre: string;
-  
-}
 type Livre = {
   id: number;
   isbn: string;
@@ -41,27 +33,22 @@ type Livre = {
   dateAjout: string;
 };
 
-
-
 const BookCatalogPage = () => {
   const router = useRouter();
   
   // États pour les livres et filtres
   const [books, setBooks] = useState<Livre[]>([]);
   const [filteredBooks, setFilteredBooks] = useState<Livre[]>([]);
-
-
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
 
   // États pour les filtres
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedGenre, setSelectedGenre] = useState('');
   const [selectedAuthor, setSelectedAuthor] = useState('');
-  const [sortBy, setSortBy] = useState('titre');
-  const [sortOrder, setSortOrder] = useState('asc');
-  const [viewMode, setViewMode] = useState('grid'); // 'grid' ou 'list'
+  const [sortBy, setSortBy] = useState<keyof Livre>('titre');
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
 
   // Récupération des livres depuis l'API
   const fetchBooks = async () => {
@@ -76,8 +63,8 @@ const BookCatalogPage = () => {
       
       // Vérifier si data est un tableau
       if (Array.isArray(data)) {
-       const [books, setBooks] = useState<Book[]>([]);
-       const [filteredBooks, setFilteredBooks] = useState<Book[]>([]);
+        setBooks(data);
+        setFilteredBooks(data);
       } else if (data && Array.isArray(data.livres)) {
         // Si les données sont dans une propriété 'livres'
         setBooks(data.livres);
@@ -95,7 +82,7 @@ const BookCatalogPage = () => {
       setError('Impossible de charger les livres. Vérifiez que le serveur est démarré.');
       
       // Données de démonstration en cas d'erreur
-      const demoBooks = [
+      const demoBooks: Livre[] = [
         {
           id: 1,
           isbn: '978-2-07-036549-7',
@@ -177,9 +164,8 @@ const BookCatalogPage = () => {
 
   // Fonction de navigation vers les détails
   const handleViewDetails = (bookId: number) => {
-  router.push(`/details/bookId/${bookId}`);
-   };
-
+    router.push(`/details/bookId/${bookId}`);
+  };
 
   // Fonction de filtrage et tri
   useEffect(() => {
@@ -207,8 +193,8 @@ const BookCatalogPage = () => {
 
     // Tri
     filtered.sort((a, b) => {
-      let aValue = a[sortBy];
-      let bValue = b[sortBy];
+      let aValue: string | number = a[sortBy];
+      let bValue: string | number = b[sortBy];
 
       if (sortBy === 'anneePublication') {
         aValue = Number(aValue) || 0;
@@ -220,24 +206,23 @@ const BookCatalogPage = () => {
 
       if (aValue === bValue) return 0;
 
-     if (sortOrder === 'asc') {
-     return aValue > bValue ? 1 : -1;
-     } else {
-     return aValue < bValue ? 1 : -1;
-     }
-
+      if (sortOrder === 'asc') {
+        return aValue > bValue ? 1 : -1;
+      } else {
+        return aValue < bValue ? 1 : -1;
+      }
     });
 
     setFilteredBooks(filtered);
   }, [books, searchTerm, selectedGenre, selectedAuthor, sortBy, sortOrder]);
 
   // Obtenir les valeurs uniques pour les filtres
-  const getUniqueValues = (field) => {
-    return [...new Set(books.map(book => book[field]).filter(Boolean))];
+  const getUniqueValues = (field: keyof Livre): string[] => {
+    return [...new Set(books.map(book => String(book[field])).filter(Boolean))];
   };
 
   // Composant carte de livre (vue grille)
-  const BookCard = ({ book }) => (
+  const BookCard: React.FC<{ book: Livre }> = ({ book }) => (
     <div className="bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden group">
       {/* Image de couverture */}
       <div className="relative h-64 bg-gradient-to-br from-indigo-100 via-blue-50 to-purple-100 flex items-center justify-center border-b border-gray-200">
@@ -305,7 +290,7 @@ const BookCatalogPage = () => {
   );
 
   // Composant ligne de livre (vue liste)
-  const BookRow = ({ book }) => (
+  const BookRow: React.FC<{ book: Livre }> = ({ book }) => (
     <div className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow p-4">
       <div className="flex items-center gap-4">
         {/* Miniature */}
@@ -399,7 +384,7 @@ const BookCatalogPage = () => {
             {/* Tri */}
             <select
               value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
+              onChange={(e) => setSortBy(e.target.value as keyof Livre)}
               className="border border-gray-300 rounded-lg px-3 py-2 focus:border-indigo-500 focus:outline-none bg-white text-gray-700 shadow-sm"
             >
               <option value="titre">Titre</option>
