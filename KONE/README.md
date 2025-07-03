@@ -191,8 +191,11 @@ Table reservations {
 # Table	                 Liens étrangers
 
 commentaires              	 livre_id → livres.id
+
 notations	                livre_id → livres.id
+
 emprunts	     id_users → users.id_users / id_livre → livres.id
+
 reservations	             livre_id → livres.id
 
 # Script sql des differentes tables de la base de donnée api 
@@ -200,7 +203,6 @@ reservations	             livre_id → livres.id
 pour visualiser les differents scriptes implementés dans notre projet :
 
 voir ( dev.session.sql) en racine du fichier KONE
-
 
 # sauvegarde du format image.png du schema de la base de donnée
 
