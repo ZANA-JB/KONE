@@ -218,11 +218,14 @@ const BookCatalogPage = () => {
         bValue = String(bValue || '').toLowerCase();
       }
 
-      if (sortOrder === 'asc') {
-        return aValue > bValue ? 1 : -1;
-      } else {
-        return aValue < bValue ? 1 : -1;
-      }
+      if (aValue === bValue) return 0;
+
+     if (sortOrder === 'asc') {
+     return aValue > bValue ? 1 : -1;
+     } else {
+     return aValue < bValue ? 1 : -1;
+     }
+
     });
 
     setFilteredBooks(filtered);
