@@ -206,9 +206,9 @@ voir ( dev.session.sql) en racine du fichier KONE
 
 # sauvegarde du format image.png du schema de la base de donnée
 
-pour visualiser les differentes relations entre entités dans notre base de donnée de notre proejt :
+pour visualiser les differentes relations entre entités dans notre base de donnée de notre proejet :
 
- voir ( schema_base_de_données.png) en racine du fichier KONE
+ voir ( schema_base_de_données.png) en racine du fichier source KONE
 
 
 # ACTEURS ( UTILISATEUR FINAL )
