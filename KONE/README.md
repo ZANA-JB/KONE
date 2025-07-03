@@ -190,13 +190,13 @@ Table reservations {
 
 # Table	                 Liens étrangers
 
-commentaires              	 livre_id → livres.id
+commentaires :            	 livre_id → livres.id
 
-notations	                livre_id → livres.id
+notations	   :             livre_id → livres.id
 
-emprunts	     id_users → users.id_users / id_livre → livres.id
+emprunts	   :  id_users → users.id_users / id_livre → livres.id
 
-reservations	             livre_id → livres.id
+reservations	:             livre_id → livres.id
 
 # Script sql des differentes tables de la base de donnée api 
 
