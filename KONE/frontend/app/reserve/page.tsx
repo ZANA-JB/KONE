@@ -31,7 +31,7 @@ const Page = () => {
     let storedUser = null;
     try {
       storedUser = userStr ? JSON.parse(userStr) : null;
-    } catch (e) {
+    } catch {   
       localStorage.removeItem('user');
       localStorage.removeItem('userToken');
     }
@@ -61,7 +61,7 @@ const Page = () => {
     setMessages((prev) => ({ ...prev, [livreId]: '' }));
 
     try {
-      const response = await axios.post(`http://localhost:4100/api/livres/${livreId}/reservation`, {
+       await axios.post(`http://localhost:4100/api/livres/${livreId}/reservation`, {
         nom: user.nom,
         email: user.email,
         telephone: user.telephone || 'Non renseigné',

@@ -80,7 +80,7 @@ function RetourLi() {
     // Utilisez ceci dans votre projet:
     
     axios.put(`http://localhost:4100/api/emprunts/${id_emprunt}/retour`, { date_retour_effective })
-      .then(res => {
+      .then(() => {
         setEmprunts(emprunts =>
           emprunts.map(emp =>
             emp.id_emprunt === id_emprunt
@@ -137,7 +137,7 @@ function RetourLi() {
                   <th className="text-left py-4 px-4 font-semibold text-slate-700">
                     <div className="flex items-center gap-2">
                       <Calendar size={16} />
-                      Date d'emprunt
+                      Date d&apos;emprunt
                     </div>
                   </th>
                   <th className="text-left py-4 px-4 font-semibold text-slate-700">Date de retour prévue</th>

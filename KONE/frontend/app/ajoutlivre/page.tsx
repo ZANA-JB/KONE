@@ -41,7 +41,8 @@ const AjoutLivrePage = () => {
     }
   }, []);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+
     const { name, value, type, checked } = e.target;
     const val = type === 'checkbox' ? checked : value;
     setFormData((prev) => ({ ...prev, [name]: val }));

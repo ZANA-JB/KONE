@@ -495,7 +495,7 @@ const ListeLivres = () => {
               marginBottom: '25px',
               lineHeight: '1.6'
             }}>
-              Êtes-vous sûr de vouloir supprimer le livre <strong>"{confirmDelete.titre}"</strong> ?
+              Êtes-vous sûr de vouloir supprimer le livre <strong>&quot;{confirmDelete.titre}&quot;</strong> ?
               Cette action est irréversible.
             </p>
             <div style={{
