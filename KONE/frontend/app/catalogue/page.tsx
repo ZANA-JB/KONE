@@ -29,6 +29,18 @@ interface Book {
   genre: string;
   
 }
+type Livre = {
+  id: number;
+  isbn: string;
+  titre: string;
+  auteur: string;
+  genre: string;
+  anneePublication: number;
+  description: string;
+  couverture: string;
+  dateAjout: string;
+};
+
 
 
 const BookCatalogPage = () => {
