@@ -62,7 +62,7 @@ La structure de notre projet se presente comme suite :
 ├── dev.session.sql
 ├── docker-compose.yml
 ├── README.md
-├── schema_base_de_données
+├── schema_base_de_données.png
 !__ captures
 
 
