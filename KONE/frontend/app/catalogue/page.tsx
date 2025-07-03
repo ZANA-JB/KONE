@@ -22,6 +22,19 @@ import {
 } from 'lucide-react';
 
 
+interface Book {
+  id: number;
+  isbn: string;
+  titre: string;
+  auteur: string;
+  genre: string;
+  anneePublication: number;
+  description: string;
+  couverture?: string;
+  dateAjout: string;
+}
+
+
 const BookCatalogPage = () => {
   const router = useRouter();
   
@@ -52,8 +65,8 @@ const BookCatalogPage = () => {
       
       // Vérifier si data est un tableau
       if (Array.isArray(data)) {
-        setBooks(data);
-        setFilteredBooks(data);
+       const [books, setBooks] = useState<Book[]>([]);
+       const [filteredBooks, setFilteredBooks] = useState<Book[]>([]);
       } else if (data && Array.isArray(data.livres)) {
         // Si les données sont dans une propriété 'livres'
         setBooks(data.livres);
