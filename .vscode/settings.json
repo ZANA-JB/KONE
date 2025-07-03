@@ -1,0 +1,72 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 4400,
+            "driver": "MySQL",
+            "name": "BD",
+            "database": "api",
+            "username": "root"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 4400,
+            "driver": "MySQL",
+            "name": "kk",
+            "database": "api",
+            "username": "root"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 4400,
+            "driver": "MySQL",
+            "name": "Api",
+            "database": "api ",
+            "username": "root",
+            "password": "konezana01"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 4400,
+            "driver": "MySQL",
+            "name": "dev",
+            "password": "konezana01",
+            "username": "root",
+            "database": "api"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 4400,
+            "driver": "MySQL",
+            "name": "projet ",
+            "database": "api",
+            "username": "root",
+            "password": "konezana01"
+        }
+    ]
+}
