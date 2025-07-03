@@ -22,7 +22,7 @@ const BookCommentsPage = () => {
   
   const [book, setBook] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null); // ✅ Correction du type
   const [comment, setComment] = useState('');
   const [author, setAuthor] = useState('');
   const [submitting, setSubmitting] = useState(false);
