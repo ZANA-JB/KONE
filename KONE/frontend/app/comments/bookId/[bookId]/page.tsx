@@ -47,7 +47,7 @@ const BookCommentsPage = () => {
         } else {
           setError('Livre non trouvé');
         }
-      } catch (err) {
+      } catch (err: any) {
         console.error('Erreur lors de la récupération du livre:', err);
         if (err.response?.status === 404) {
           setError('Livre non trouvé');
@@ -76,7 +76,7 @@ const BookCommentsPage = () => {
     setSuccessMessage('');
   };
 
-  const handleSubmitComment = async (e) => {
+  const handleSubmitComment = async (e: React.FormEvent) => {
     e.preventDefault();
     
     console.log('Début de la soumission du commentaire');
@@ -153,7 +153,7 @@ const BookCommentsPage = () => {
         throw new Error(response.data?.message || 'Réponse inattendue du serveur');
       }
       
-    } catch (err) {
+    } catch (err: any) {
       console.error('=== ERREUR COMPLÈTE ===');
       console.error('Erreur:', err);
       console.error('Message:', err.message);
@@ -199,7 +199,7 @@ const BookCommentsPage = () => {
       const response = await axios.get(`http://localhost:4100/api/livres/${bookId}`);
       console.log('✅ Serveur accessible:', response.status);
       alert('✅ Connexion au serveur OK');
-    } catch (err) {
+    } catch (err: any) {
       console.error('❌ Erreur de connexion:', err);
       alert(`❌ Erreur de connexion au serveur: ${err.message}`);
     }
