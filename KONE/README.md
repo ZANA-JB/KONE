@@ -80,7 +80,7 @@ Etape de lancement du backend
 
  # FRONTEND
 
- Etape de lancement du front
+ Etape de lancement du frontend
 
  -cd KONE
  -cd frontend
@@ -89,7 +89,7 @@ Etape de lancement du backend
  
 # SCHEMA DE LA BASE DE DONNEE
 
-Une base de donnée api a éte crée contenant plusieurs tables telles que :
+Une base de donnée api a éte crée contenant plusieurs tables et des identifiants specifiques tels que :
 
 ## Table des utilisateurs
 
