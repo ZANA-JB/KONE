@@ -47,8 +47,10 @@ const BookCatalogPage = () => {
   const router = useRouter();
   
   // États pour les livres et filtres
-  const [books, setBooks] = useState([]);
-  const [filteredBooks, setFilteredBooks] = useState([]);
+  const [books, setBooks] = useState<Livre[]>([]);
+  const [filteredBooks, setFilteredBooks] = useState<Livre[]>([]);
+
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
