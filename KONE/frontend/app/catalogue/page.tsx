@@ -24,14 +24,10 @@ import {
 
 interface Book {
   id: number;
-  isbn: string;
   titre: string;
   auteur: string;
   genre: string;
-  anneePublication: number;
-  description: string;
-  couverture?: string;
-  dateAjout: string;
+  
 }
 
 
@@ -42,7 +38,8 @@ const BookCatalogPage = () => {
   const [books, setBooks] = useState([]);
   const [filteredBooks, setFilteredBooks] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
+
 
   // États pour les filtres
   const [searchTerm, setSearchTerm] = useState('');
