@@ -176,9 +176,10 @@ const BookCatalogPage = () => {
   }, []);
 
   // Fonction de navigation vers les détails
-  const handleViewDetails = (bookId) => {
-    router.push(`/details/bookId/${bookId}`);
-  };
+  const handleViewDetails = (bookId: number) => {
+  router.push(`/details/bookId/${bookId}`);
+   };
+
 
   // Fonction de filtrage et tri
   useEffect(() => {
