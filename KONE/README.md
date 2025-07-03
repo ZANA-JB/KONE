@@ -22,7 +22,7 @@
     -Backend : Node.js (Express) pour la création de l’API RESTful
     -Base de donnée : Mysql comme base de données relationnelle
     -Authentification : JWT
-    -Versioning : GitHub
+    -Versioning : GitHub pour le versionning des codes sources commentés
     -Conteneurisation : Docker, Docker Compose , pour l’environnement de développement
     - Architecture **RESTful** respectant les bonnes pratiques (GET, POST, PUT, DELETE)
 
@@ -195,7 +195,16 @@ notations	                livre_id → livres.id
 emprunts	     id_users → users.id_users / id_livre → livres.id
 reservations	             livre_id → livres.id
 
+# Script sql des differentes tables de la base de donnée api 
+
+pour visualiser les differents scriptes implementés dans notre projet :
+
+voir ( dev.session.sql) en racine du fichier KONE
+
+
 # sauvegarde du format image.png du schema de la base de donnée
+
+pour visualiser les differentes relations entre entités dans notre base de donnée de notre proejt :
 
  voir ( schema_base_de_données.png) en racine du fichier KONE
 
@@ -213,6 +222,8 @@ si role = 0 alors etudiant
 
 # un administrateur a été crée pour visualiser le tableau de bord d'un admin 
 
+les informations de l'administrateur stockées sont :
+
 NOM: kone
 Prenom: zana
 Email: kone1@gmail.com
@@ -222,12 +233,12 @@ Password: kone1@gmail.com
 
 # DEMONSTRATIONS FONCTIONNELLES
 
-#Le dossier captures/ contient des images illustrant l’utilisation de la plateforme
+Le dossier /captures contient des images illustrant l’utilisation de la plateforme 
 
 # Voir dossier ( /captures  ) à la racine du dossier source contenant le frontend et le backend 
 
 
-#Lien de videos pour demonstration fontionelles 
+lien de videos pour demonstration fontionelles 
 
 # Voir la vidéo de démonstration ici :  
   
