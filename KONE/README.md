@@ -28,9 +28,10 @@
 
 
 # FONCTIONNALITES PRINCIPALES IMPLEMENTEES
-
+ 
  Les differentes fonctionalités implementées sont :
 
+# Espace etudiant
    - Inscription / Connexion étudiant
    - Liste des livres disponibles avec filtres (titre, auteur, genre)
    - Réservation et emprunt de livres
@@ -89,7 +90,6 @@ Etape de lancement du backend
 # SCHEMA DE LA BASE DE DONNEE
 
 Une base de donnée api a éte crée contenant plusieurs tables telles que :
-
 
 ## Table des utilisateurs
 
@@ -220,7 +220,7 @@ pour faire attribuer le role d'un administrateur à un utilisateur enregistré, 
 si role = 1 alors administrateur
 si role = 0 alors etudiant 
 
-# un administrateur a été crée pour visualiser le tableau de bord d'un admin 
+# Un administrateur a été crée pour visualiser le tableau de bord d'un admin 
 
 les informations de l'administrateur stockées sont :
 
@@ -229,18 +229,15 @@ Prenom: zana
 Email: kone1@gmail.com
 Password: kone1@gmail.com
 
-
-
 # DEMONSTRATIONS FONCTIONNELLES
 
-Le dossier /captures contient des images illustrant l’utilisation de la plateforme 
+# le dossier /captures contient des images de toutes les fonctionnalités implementées illustrant l’utilisation de la plateforme 
 
-# Voir dossier ( /captures  ) à la racine du dossier source contenant le frontend et le backend 
+Voir dossier ( /captures  ) à la racine du dossier source contenant le frontend et le backend 
 
+# lien de videos pour demonstration fontionelles 
 
-lien de videos pour demonstration fontionelles 
-
-# Voir la vidéo de démonstration ici :  
+Voir la vidéo de démonstration en suivant :  
   
 
 
