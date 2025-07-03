@@ -16,13 +16,22 @@ import {
   CheckCircle
 } from 'lucide-react';
 
+// Define the Book type
+interface Book {
+  id: number;
+  titre: string;
+  auteur: string;
+  genre: string;
+  isbn: string;
+}
+
 const BookCommentsPage = () => {
   const { bookId } = useParams();
   const router = useRouter();
   
-  const [book, setBook] = useState(null);
+  const [book, setBook] = useState<Book | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null); // ✅ Correction du type
+  const [error, setError] = useState<string | null>(null);
   const [comment, setComment] = useState('');
   const [author, setAuthor] = useState('');
   const [submitting, setSubmitting] = useState(false);
