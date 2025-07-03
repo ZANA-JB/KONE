@@ -216,7 +216,8 @@ const Page = () => {
     return (
       <button
         onClick={onClick}
-        className={`bg-gradient-to-r ${colorClasses[color]} text-white ${sizeClasses} rounded-xl font-medium transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl flex flex-col items-center justify-center text-center min-h-[100px] border-0`}
+        className={`bg-gradient-to-r ${colorClasses[color as keyof typeof colorClasses]} text-white ${sizeClasses} rounded-xl font-medium transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl flex flex-col items-center justify-center text-center min-h-[100px] border-0`}
+
       >
         <Icon className="w-6 h-6 mb-2" />
         <span className="font-semibold text-sm">{title}</span>
