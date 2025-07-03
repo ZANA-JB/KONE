@@ -233,9 +233,10 @@ Password: kone1@gmail.com
 
 # DEMONSTRATIONS FONCTIONNELLES
 
-# le dossier /captures contient des images de toutes les fonctionnalités implementées illustrant l’utilisation de la plateforme 
+# le dossier /captures 
 
-Voir dossier ( /captures  ) à la racine du dossier source contenant le frontend et le backend 
+Ce dossier contient des images de toutes les fonctionnalités implementées illustrant l’utilisation de la plateforme .
+Voir dossier ( /captures  ) à la racine du dossier source contenant le frontend et le backend pour visualiser implementation .
 
 # lien de videos pour demonstration fontionelles 
 
