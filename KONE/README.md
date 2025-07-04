@@ -226,7 +226,7 @@ si role dans la table users  = 0 alors etudiant
 
 # Un administrateur a été crée pour visualiser le tableau de bord d'un admin 
 
-les informations stockées de l'administrateur crée sont :
+les informations stockées de l'administrateur crée sont les suivantes,
 toutes les données devront etre rentrées en miniscule lors de la connexion sur la plateforme.
 
 NOM: kone
