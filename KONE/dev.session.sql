@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS users (
 --roles
 UPDATE users
 SET role = 1
-WHERE email = 'fatou@example.com';  -- Passe Fatou en admin
+WHERE email = 'kone1@example.com';  -- Passe kone  en admin
 
 
 -- Création de la table livres

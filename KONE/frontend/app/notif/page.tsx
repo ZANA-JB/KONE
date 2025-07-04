@@ -5,7 +5,7 @@ import { Bell, Clock, Book, Calendar, AlertTriangle, CheckCircle, Eye, Archive, 
 // Simulation d'axios pour la démo
 const axios = {
   get: (url) => {
-    // Simulation de notifications personnelles pour l'étudiant connecté
+    // Simulation de notifications personnelles pour l'étudiant connecté en cas de retard de retard non trouvé
     if (url.includes('/notifications/mes-notifications')) {
       return Promise.resolve({
         data: {

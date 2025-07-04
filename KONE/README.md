@@ -50,21 +50,23 @@ La structure de notre projet se presente comme suite :
 
 /KONE
 ├── backend/
-│   ├── server.js
-│   ├── middleware/
-│   ├── database.js
-│   ├── Dockerfile
+│   ├── server.js              # Point d'entrée du serveur
+│   ├── middleware/            # Middlewares personnalisés
+│   ├── database.js            # Configuration base de données
+│   ├── Dockerfile            # Configuration Docker backend
 ├── frontend/
-│   ├── app/
-│   ├── Dockerfile
-│   ├── package.json
-├── .env
-├── .gitignore
-├── dev.session.sql
-├── docker-compose.yml
-├── README.md
-├── schema_base_de_données.png
-!__ captures
+│   ├── app/                  # Application React
+│   ├── Dockerfile            # Configuration Docker frontend
+│   ├── package.json          # Dépendances frontend
+├── .env                      # Variables d'environnement
+├── .gitignore               # Fichiers ignorés par Git
+├── dev.session.sql          # Scripts SQL de développement
+├── docker-compose.yml       # Orchestration des services
+├── README.md                # Documentation projet
+├── schema_base_de_données.png   # Diagramme relationnel
+└── captures/                   # Documentation visuelle
+└──Rapport_PROJET             # Rapport du projet 
+
 
 
 ## METHODE DE LANCEMENT DU PROJET
@@ -206,7 +208,7 @@ voir ( dev.session.sql) en racine du fichier KONE
 
 # sauvegarde du format image.png du schema de la base de donnée
 
-pour visualiser les differentes relations entre entités dans notre base de donnée de notre proejet :
+pour visualiser les differentes relations entre entités dans notre base de donnée de notre projet :
 
  voir ( schema_base_de_données.png) en racine du fichier source KONE
 
@@ -219,12 +221,12 @@ Par defaut un utilisateur final enregistré sur cette plateforme en ligne se ver
 
 pour faire attribuer le role d'un administrateur à un utilisateur enregistré, nous nous sommes donnés pour règle d'attribution suivante:
 
-si role = 1 alors administrateur
-si role = 0 alors etudiant 
+si role dans la table users = 1 alors administrateur
+si role dans la table users  = 0 alors etudiant 
 
 # Un administrateur a été crée pour visualiser le tableau de bord d'un admin 
 
-les informations de l'administrateur stockées sont :
+les informations stockées de l'administrateur crée sont :
 
 NOM: kone
 Prenom: zana
