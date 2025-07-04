@@ -75,19 +75,20 @@ La structure de notre projet se presente comme suite :
 
 Etape de lancement du backend
 
- -cd KONE
- -Cd backend 
- -npm install
- -npm start
+cd KONE
+cd frontend
+npm install
+npm run dev
 
  # FRONTEND
 
  Etape de lancement du frontend
 
- -cd KONE
- -cd frontend
- -npm install
- -npm start
+cd KONE
+cd frontend
+npm install
+npm run dev
+
  
 # SCHEMA DE LA BASE DE DONNEE
 
@@ -226,7 +227,7 @@ si role dans la table users  = 0 alors etudiant
 
 # Un administrateur a été crée pour visualiser le tableau de bord d'un admin 
 
-les informations stockées de l'administrateur crée sont les suivantes,
+les informations stockées de l'administrateur crée sont les suivantes, 
 toutes les données devront etre rentrées en miniscule lors de la connexion sur la plateforme.
 
 NOM: kone
