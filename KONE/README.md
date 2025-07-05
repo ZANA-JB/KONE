@@ -76,7 +76,7 @@ La structure de notre projet se presente comme suite :
 Etape de lancement du backend
 
 cd KONE
-cd frontend
+cd frontend 
 npm install
 npm run dev
 
@@ -244,7 +244,7 @@ Voir dossier ( /captures  ) à la racine du dossier source contenant le frontend
 
 # lien de videos pour demonstration fontionelles 
 
-Voir la vidéo de démonstration en suivant :  
+Voir la vidéo de démonstration en suivant :  https://drive.google.com/file/d/1exRh1P_2IiI69Hnl3o2s4rfjYUJrjPLB/view?usp=drive_link
   
 
 
