@@ -76,20 +76,20 @@ const LoginPage = () => {
         password: formData.password
       });
       
-      console.log("Utilisateur connecté :", response.data.user);
+      console.log("Utilisateur connecté :", response.data);
 
       // Vérification de la réponse
-      if (response.data.success) {
+      if (response.data && response.data.token) {
         // DEBUG : log avant stockage
         console.log('Stockage dans localStorage :', response.data.token, response.data);
         localStorage.setItem('userToken', response.data.token);
         // Stocker l'utilisateur avec la bonne clé id_users pour compatibilité
         localStorage.setItem('user', JSON.stringify({
-          id_users: response.data.id_users, // Correction : stocke bien id_users
+          id_users: response.data.id_users,
           email: response.data.email,
           nom: response.data.nom,
           prenom: response.data.prenom,
-          role: response.data.role // Correction : stocke le rôle (0 ou 1)
+          role: response.data.role
         }));
         setIsAuthenticated(true);
         setMessage({
@@ -101,7 +101,7 @@ const LoginPage = () => {
       } else {
         setMessage({
           type: 'error',
-          text: response.data.message + ' Email ou mot de passe incorrect'
+          text: 'Email ou mot de passe incorrect'
         });
       }
       
@@ -109,8 +109,18 @@ const LoginPage = () => {
       console.error('Erreur lors de la connexion:', error);
       
       // Gestion spécifique des erreurs réseau
-      if (error instanceof Error) {
-        if (error.message.includes('Network Error')) {
+      if (axios.isAxiosError(error)) {
+        if (error.response?.status === 401) {
+          setMessage({
+            type: 'error',
+            text: 'Email ou mot de passe incorrect'
+          });
+        } else if (error.response?.status === 500) {
+          setMessage({
+            type: 'error',
+            text: 'Erreur serveur. Veuillez réessayer plus tard.'
+          });
+        } else if (error.code === 'ECONNREFUSED' || error.message.includes('Network Error')) {
           setMessage({
             type: 'error',
             text: 'Impossible de se connecter au serveur. Vérifiez que le serveur fonctionne sur le port 4100.'
@@ -118,15 +128,9 @@ const LoginPage = () => {
         } else {
           setMessage({
             type: 'error',
-            text: 'Erreur de connexion. Veuillez réessayer plus tard.'
+            text: error.response?.data?.message || 'Erreur de connexion'
           });
         }
-      } else if (axios.isAxiosError(error) && error.response) {
-        // Le serveur a répondu avec un code d'erreur
-        setMessage({
-          type: 'error',
-          text: error.response.data.message || 'Erreur de connexion'
-        });
       } else {
         setMessage({
           type: 'error',
